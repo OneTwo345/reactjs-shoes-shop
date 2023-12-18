@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 

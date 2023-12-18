@@ -42,6 +42,7 @@ import { toast } from 'react-toastify';
 
 export default function Card(props) {
   const handleAddToCart = (product) => {
+    // const checkId = product.find(e => e.id==cart)
    const cart = {
     category: product.category,
     color: product.color,
@@ -50,8 +51,9 @@ export default function Card(props) {
     newPrice: product.newPrice,
     prevPrice: product.prevPrice,
     title: product.title,
+    quantity: 1
    }
-
+  // checkId? (cart.quantity +1) : cart.quantity = 1
     axios.post(
     "https://json-server-vercel-shoes-shop-view.vercel.app/carts",
     cart

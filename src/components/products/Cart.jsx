@@ -2,12 +2,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import CartProduct from '../cart/CartProduct';
 
 
 export default function Cart() {
 
     const [carts,setCarts] = useState([])
     const [check,setCheck] = useState(false)
+
+    const handleAddMoreCart = () => {
+
+    }
+   
     
 
     const loadingCarts = async () => {
@@ -49,34 +55,7 @@ export default function Cart() {
                 </tr>
             </thead>
         <tbody>
-            {carts && carts
-            .map((cart) => (
-            <tr key={cart.id}>
-                <td style={{maxWidth: "200px"}}>
-                    <div className='d-flex align-items-center'>
-                        <img className='product-image' src={cart.img} alt="" />
-                        <div className='d-inline'>
-                            <div className='d-block fw-bolder mb-2'>{cart.title}</div>
-                            <div className='badge py-2' style={{backgroundColor: "black"}}>{cart.color}</div>
-                        </div>
-                    </div>
-                </td>
-                <td className='text-end'>${cart.newPrice}</td>
-                <td className='cart-quantity-wrap'>
-                    <div className='cart-quantity'>
-                        <span>-</span>
-                        <span>1</span>
-                        <span>+</span>
-                    </div>
-                </td>
-                <td className='text-end'>
-                    $150
-                </td>
-                <div className='action-wrap'>
-                    <span className='btn-remove' onClick={() => handleDeleteCart(cart)}>X</span>
-                </div>
-            </tr>
-                ))}
+            <CartProduct carts={carts} handleDeleteCart={handleDeleteCart} handleAddMoreCart = {handleAddMoreCart}/>
         </tbody>
         </table>
         <div>

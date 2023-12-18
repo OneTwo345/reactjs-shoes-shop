@@ -139,6 +139,7 @@ const ProductView = () => {
 		handleCloseModalUpdate = {handleCloseModalUpdate}
 		product = {product}
 		setCheckProduct ={setCheckProduct}
+		setProduct={setProduct}
 	  />
 		</section>
 		</div>

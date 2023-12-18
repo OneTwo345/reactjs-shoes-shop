@@ -7,41 +7,29 @@ import { toast } from "react-toastify";
 
 
 const ModalUpdateProduct = ({
-    show, handleCloseModalUpdate,product,setCheckProduct
+    show, handleCloseModalUpdate,product,setCheckProduct,setProduct
 }) => {
-	const [newProduct, setNewProduct] = useState(product)
-	const [check,setCheck] =useState(true)
-	// const [title, setTitle] = useState()
-	// const [color, setColor] = useState()
-	// const [company, setCompany] = useState()
-	// const [category, setCategory] = useState()
-	// const [newPrice, setNewPrice] = useState()
-	// const [prevPrice, setPrev] = useState()
 
-	setCheckProduct(check)
-	const handleUpdateProduct = async (newProduct) => {
+	const handleUpdateProduct = async (product) => {
 		try {
 		  await axios.put(
-			`https://json-server-vercel-shoes-shop-view.vercel.app/${newProduct.id}`,
-			newProduct
-			
+			`https://json-server-vercel-shoes-shop-view.vercel.app/products/${product.id}`,
+			product
 		  );
 		  toast.success('Edit product sucessfully',{autoClose: 1000})
-		  setCheck((prev) => !prev)
+		  setCheckProduct((prev) => !prev)
 
 		} catch (error) {
 		  console.error(error);
 		}
 
 	  };
-
 	const handleInputChange = (e) => {
-		setNewProduct({
-		...newProduct,
+		setProduct({
+		...product,
 		[e.target.name]: e.target.value,
 	
 	  });
-	  console.log(newProduct);
 	};
 
 	const [colors, setColors] = useState([]);
@@ -105,7 +93,7 @@ const ModalUpdateProduct = ({
 						id="title"
 						required
 						defaultValue={
-							 Object.keys(newProduct).length==0 ? product.title: newProduct.title
+						 product.title
 						}
 						onChange={(e) => handleInputChange(e)}
 					/>
@@ -123,7 +111,7 @@ const ModalUpdateProduct = ({
                   id="category"
                   required
 				  defaultValue={
-					Object.keys(newProduct).length==0 ? product.category: newProduct.category
+				 product.category
 			   }                  onChange={(e) => handleInputChange(e)}
                 >
                   <option value="">Select a Category</option>
@@ -149,7 +137,7 @@ const ModalUpdateProduct = ({
                   id="color"
                   required
 				  defaultValue={
-					Object.keys(newProduct).length==0 ? product.color: newProduct.color
+					 product.color
 			   }                  onChange={(e) => handleInputChange(e)}
                 >
                   <option value="">Select a color</option>
@@ -173,7 +161,7 @@ const ModalUpdateProduct = ({
                   id="company"
                   required
 				  defaultValue={
-					Object.keys(newProduct).length==0 ? product.company: newProduct.company
+				 product.company
 			   }                  onChange={(e) => handleInputChange(e)}
                 >
                   <option value="">Select a company</option>
@@ -200,7 +188,7 @@ const ModalUpdateProduct = ({
 						id="newPrice"
 						required
 						defaultValue={
-							Object.keys(newProduct).length==0 ? product.newPrice: newProduct.newPrice
+						 product.newPrice
 					   }						onChange={(e) => handleInputChange(e)}
 					/>
 				</div>
@@ -217,13 +205,11 @@ const ModalUpdateProduct = ({
 						id="prevPrice"
 						required
 						defaultValue={
-							Object.keys(newProduct).length==0 ? product.prevPrice: newProduct.prevPrice
+						product.prevPrice
 					   }						onChange={(e) => handleInputChange(e)}
 					/>
 				</div>
 			</div>
-				
-
 			</form>
 
 
@@ -235,7 +221,7 @@ const ModalUpdateProduct = ({
 		  <Button
                         variant="primary"
                         onClick={() => {
-                            handleUpdateProduct(newProduct);
+                            handleUpdateProduct(product);
                             handleCloseModalUpdate();
                         }}
                     >

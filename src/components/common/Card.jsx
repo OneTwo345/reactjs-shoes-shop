@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 
@@ -40,13 +41,27 @@ import { toast } from 'react-toastify';
 
 
 export default function Card(props) {
-  const [cartItems, setCartItems] = useState([]);
-
   const handleAddToCart = (product) => {
-    setCartItems((prevItems) => [...prevItems, product]);
-    toast.success('Add to cart', { autoClose: 1000 });
-    console.log(cartItems);
+   const cart = {
+    category: product.category,
+    color: product.color,
+    company: product.company,
+    img: product.img,
+    newPrice: product.newPrice,
+    prevPrice: product.prevPrice,
+    title: product.title,
+   }
+
+    axios.post(
+    "https://json-server-vercel-shoes-shop-view.vercel.app/carts",
+    cart
+  );
+   
+
+    toast.success("Create Product Successfully",{autoClose: 1000});
   };
+
+ 
 
   const product = props.data;
 

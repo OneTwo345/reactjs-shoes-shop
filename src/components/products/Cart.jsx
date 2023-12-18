@@ -1,10 +1,34 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 export default function Cart() {
 
-    const [productCarts, setProductCarts ] = useState([])
+    const [carts,setCarts] = useState([])
+    const [check,setCheck] = useState(false)
+    
+
+    const loadingCarts = async () => {
+		const carts = await axios.get(
+			"https://json-server-vercel-shoes-shop-view.vercel.app/carts",
+		);
+			setCarts(carts.data);
+	};
+
+    const handleDeleteCart = async (cart) => {
+       await axios.delete(
+			`https://json-server-vercel-shoes-shop-view.vercel.app/carts/${cart.id}`
+		);
+        toast.warning("Xóa thành công",{autoClose: 1000})
+        setCheck((prev) => !prev)
+    }
+
+    useEffect(() => {
+        loadingCarts()
+    },[ check])
+    console.log(check);
   return (
     <div>
     <div className='row'>
@@ -25,17 +49,19 @@ export default function Cart() {
                 </tr>
             </thead>
         <tbody>
-            <tr>
+            {carts && carts
+            .map((cart) => (
+            <tr key={cart.id}>
                 <td style={{maxWidth: "200px"}}>
                     <div className='d-flex align-items-center'>
-                        <img className='product-image' src="" alt="" />
+                        <img className='product-image' src={cart.img} alt="" />
                         <div className='d-inline'>
-                            <div className='d-block fw-bolder mb-2'>Wedding Prom Bridal</div>
-                            <div className='badge py-2' style={{backgroundColor: "black"}}>Black</div>
+                            <div className='d-block fw-bolder mb-2'>{cart.title}</div>
+                            <div className='badge py-2' style={{backgroundColor: "black"}}>{cart.color}</div>
                         </div>
                     </div>
                 </td>
-                <td className='text-end'>$150</td>
+                <td className='text-end'>${cart.newPrice}</td>
                 <td className='cart-quantity-wrap'>
                     <div className='cart-quantity'>
                         <span>-</span>
@@ -47,10 +73,10 @@ export default function Cart() {
                     $150
                 </td>
                 <div className='action-wrap'>
-                    <span className='btn-remove'>X</span>
+                    <span className='btn-remove' onClick={() => handleDeleteCart(cart)}>X</span>
                 </div>
-
             </tr>
+                ))}
         </tbody>
         </table>
         <div>

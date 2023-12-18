@@ -98,6 +98,7 @@ padding-right: 30px; /* Đảm bảo không che phủ biểu tượng */
     justify-content: center;
     padding: 15px;
     width: 20px;
+    cursor: pointer;
 }
 .action-wrap{
     align-items: center;
@@ -119,7 +120,7 @@ padding-right: 30px; /* Đảm bảo không che phủ biểu tượng */
     width: 100px;
 }
 td.cart-quantity-wrap {
-    height: 77px;
+    height: 120px;
 }
 
 .cart-quantity>span:first-child {
@@ -146,4 +147,9 @@ td.cart-quantity-wrap {
     border-radius: 5px;
     margin-top: 4px;
     padding: 5px;
+}
+.product-image{
+    margin-right: 4px;
+    padding: 0 5px;
+    width: 40%;
 }

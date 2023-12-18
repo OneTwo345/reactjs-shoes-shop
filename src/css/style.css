@@ -1,0 +1,149 @@
+.m-w180{
+    min-width: 160px
+}
+
+.pt-10{
+    padding-top: 10px
+}
+
+.pl-50{
+    padding-left: 50px
+}
+
+.pr-10{
+    padding-right: 10px
+}
+
+.bi-lg-rrr{
+    background-image: linear-gradient(to right, red, green)
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.icon-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.icon-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-container {
+    position: relative;
+  }
+  
+.search-container i.fa-solid.fa-magnifying-glass {
+position: absolute;
+top: 27%;
+right: 10px;
+transform: translateY(-37%);
+transform: translateX(776%);
+width: 20px;
+height: 20px;
+background-image: url(https://fontawesome.com/icons/magnifying-glass?f=classic&s=solid);
+background-size: cover;
+pointer-events: none; /* Đảm bảo biểu tượng không che phủ ô input */
+}
+
+#inputSearch {
+padding-right: 30px; /* Đảm bảo không che phủ biểu tượng */
+}
+
+#inputSearch {
+    width: 170%; /* Ô input chiếm toàn bộ chiều rộng của container */
+  }
+
+
+  .w-180 {
+    min-width: 160px;
+}
+.w-400 {
+    width: 400px;
+}
+.text-align-start {
+    text-align: start;
+}
+.w-16-h-17-p-10 {
+    width: 16rem;
+    height: 17rem;
+    padding: 10px;
+}
+.w-30 {
+    size: 40px;
+}
+
+.dropdown-usercart{
+    color: black;
+    text-decoration: none;
+}
+.bg-blue{
+    background-color: #2686e6;
+    color: white;
+}
+
+.btn-remove{
+    align-items: center;
+    background-color: #0006;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    height: 20px;
+    justify-content: center;
+    padding: 15px;
+    width: 20px;
+}
+.action-wrap{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.cart-quantity-wrap{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.cart-quantity{
+    align-items: center;
+    background-color: #0006;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 10px;
+    width: 100px;
+}
+td.cart-quantity-wrap {
+    height: 77px;
+}
+
+.cart-quantity>span:first-child {
+    cursor: pointer;
+    text-align: center;
+    width: 25px;
+}
+.cart-quantity>span:nth-child(2) {
+    flex-grow: 1;
+    text-align: center;
+}
+.cart-quantity>span:last-child {
+    cursor: pointer;
+    text-align: center; 
+    width: 25px;
+}
+.order-summary {
+    background-color: #0003;
+    border-radius: 5px;
+    padding: 5px;
+}
+.customer-info {
+    background-color: #0000001a;
+    border-radius: 5px;
+    margin-top: 4px;
+    padding: 5px;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CartProduct({carts,handleDeleteCart}) {
+export default function CartProduct({carts,handleDeleteCart,handleAddMoreCart}) {
   return (
     <>
                 {carts && carts
@@ -19,8 +19,8 @@ export default function CartProduct({carts,handleDeleteCart}) {
                 <td className='cart-quantity-wrap'>
                     <div className='cart-quantity'>
                         <span>-</span>
-                        <span>1</span>
-                        <span>+</span>
+                        <span>{cart.quantity}</span>
+                        {/* <span onClick={() => {handleAddMoreCart()}}>+</span> */}
                     </div>
                 </td>
                 <td className='text-end'>

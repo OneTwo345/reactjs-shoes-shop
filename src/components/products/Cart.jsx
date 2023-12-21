@@ -11,7 +11,7 @@ export default function Cart() {
     const [check,setCheck] = useState(false)
 
     const handleAddMoreCart = () => {
-
+        
     }
    
     

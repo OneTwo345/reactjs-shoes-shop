@@ -7,13 +7,26 @@ import ProductMain from "./components/products/ProductMain";
 import Layout from "./components/products/Layout";
 import AddProduct from "./components/products/AddProduct";
 import Cart from "./components/products/Cart";
+import BankView from "./banking/BankView";
+import CreateCustomer from "./banking/CreateCustomer";
+import EditCustomer from "./banking/EditCustomer";
+import Deposit from "./banking/Deposit";
+import Withdraw from "./banking/Withdraw";
+import DeleteCustomer from "./banking/DeleteCustomer";
+import TransferMoney from "./banking/TransferMoney";
 
 function App() {
   const [data, setData] = useState(newData);
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<ProductMain />} />
+        <Route path="/" element={<BankView />} />
+        <Route path="/add-customer" element={<CreateCustomer />} />
+        <Route path="/edit-customer/:id" element={<EditCustomer />} />
+        <Route path="/delete-customer/:id" element={<DeleteCustomer />} />
+        <Route path="/deposit/:id" element={<Deposit />} />
+        <Route path="/withdraw/:id" element={<Withdraw />} />
+        <Route path="/transfer/:id" element={<TransferMoney />} />
         <Route path="/products" element={<Layout />}>
           <Route path="" element={<ProductView />} />
         </Route>
